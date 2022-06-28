@@ -2,6 +2,7 @@
 import { useRouter, useRoute } from 'vue-router'
 import { useAppStore } from '@/stores/app'
 import { useUserStore } from '@/stores/user'
+import { toggleDark } from '@/composables'
 
 const router = useRouter()
 const route = useRoute()
