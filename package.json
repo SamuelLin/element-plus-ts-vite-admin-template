@@ -1,10 +1,11 @@
 {
   "name": "element-plus-ts-vite-admin-template",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "dev": "vite",
+    "lint": "eslint -c .eslintrc.js --fix --ext .js,.ts,.vue .",
     "preview": "vite preview",
     "typecheck": "vue-tsc --noEmit"
   },
