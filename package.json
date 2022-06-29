@@ -6,9 +6,19 @@
     "build": "vue-tsc --noEmit && vite build",
     "dev": "vite",
     "lint": "eslint -c .eslintrc.js --fix --ext .js,.ts,.vue .",
+    "prepare": "husky install",
     "prettier": "prettier --write .",
     "preview": "vite preview",
     "typecheck": "vue-tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.{js,vue,ts,jsx,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{html,css,less,scss,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.6",
