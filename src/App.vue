@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-// TODO: i18n
 import en from 'element-plus/es/locale/lang/en'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
-import zhTw from 'element-plus/lib/locale/lang/zh-tw'
+import { useAppStore } from '@/stores/app'
 
-const locale = zhTw
+const appStore = useAppStore()
+const locale = appStore.locale === 'en' ? en : zhCn
 </script>
 
 <template>

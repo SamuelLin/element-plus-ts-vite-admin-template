@@ -159,7 +159,7 @@ export default {
     },
     closeOthersTags() {
       this.$router.push(this.selectedTag)
-      this.delOthersViews(his.selectedTag).then(() => {
+      this.delOthersViews(this.selectedTag).then(() => {
         this.moveToCurrentTag()
       })
     },

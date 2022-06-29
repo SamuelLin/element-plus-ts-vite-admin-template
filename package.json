@@ -6,6 +6,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "dev": "vite",
     "lint": "eslint -c .eslintrc.js --fix --ext .js,.ts,.vue .",
+    "prettier": "prettier --write .",
     "preview": "vite preview",
     "typecheck": "vue-tsc --noEmit"
   },
@@ -27,6 +28,8 @@
     "@babel/eslint-parser": "^7.18.2",
     "@intlify/vite-plugin-vue-i18n": "^3.4.0",
     "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
     "@vitejs/plugin-vue": "^2.3.3",
     "@vue/eslint-config-prettier": "^7.0.0",
     "cross-env": "^7.0.3",

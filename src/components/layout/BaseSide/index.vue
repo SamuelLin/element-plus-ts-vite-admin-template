@@ -8,8 +8,12 @@ const route = useRoute()
 const appStore = useAppStore()
 const permissionStore = usePermissionStore()
 
-const handleOpen = (key, keyPath) => {}
-const handleClose = (key, keyPath) => {}
+const handleOpen = (key, keyPath) => {
+  console.log('handleOpen')
+}
+const handleClose = (key, keyPath) => {
+  console.log('handleClose')
+}
 
 const activeMenu = computed(() => {
   const { meta, path } = route
@@ -36,10 +40,10 @@ const activeMenu = computed(() => {
       @close="handleClose"
     >
       <BaseSideItem
-        v-for="route in permissionStore.routes"
-        :key="route.path"
-        :item="route"
-        :base-path="route.path"
+        v-for="pRoute in permissionStore.routes"
+        :key="pRoute.path"
+        :item="pRoute"
+        :base-path="pRoute.path"
       />
     </el-menu>
   </el-scrollbar>

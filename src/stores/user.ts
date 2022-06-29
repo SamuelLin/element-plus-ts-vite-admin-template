@@ -11,7 +11,9 @@ export const useUserStore = defineStore('user', {
   }),
   actions: {
     // user login
-    async login() {},
+    async login() {
+      console.log('login')
+    },
 
     // user logout,
     logout() {

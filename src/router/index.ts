@@ -113,6 +113,8 @@ const router = createRouter({
   routes: constantRoutes
 })
 
-export const resetRouter = () => {}
+export const resetRouter = () => {
+  console.log('resetRouter')
+}
 
 export default router

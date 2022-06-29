@@ -1,5 +1,13 @@
 node_modules
 .vscode
 dist
+types
 public
 .eslintrc.js
+.husky
+*.woff
+*.ttf
+*.sh
+*.scss
+*.css
+*.svg
