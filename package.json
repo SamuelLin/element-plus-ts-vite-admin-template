@@ -16,6 +16,7 @@
     "dayjs": "^1.11.3",
     "element-plus": "^2.2.6",
     "js-cookie": "^3.0.1",
+    "path-browserify": "^1.0.1",
     "pinia": "^2.0.14",
     "vue": "^3.2.25",
     "vue-i18n": "^9.1.10",

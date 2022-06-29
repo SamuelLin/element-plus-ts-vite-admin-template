@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import path from 'path'
 import { ref } from 'vue'
 import { isExternal } from '@/utils/validate'
 
@@ -41,7 +42,7 @@ function resolvePath(routePath) {
   if (isExternal(props.basePath)) {
     return props.basePath
   }
-  return props.basePath + `${props.basePath === '/' ? '' : '/'}` + routePath
+  return path.resolve(props.basePath, routePath)
 }
 </script>
 
