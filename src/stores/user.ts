@@ -31,12 +31,11 @@ export const useUserStore = defineStore('user', {
 
         this.roles = mockData.roles
         this.name = mockData.name
-  
+
         resolve(mockData)
-        
+
         // getInfo()
         //   .then((response) => {
-            
 
         //     if (!data) {
         //       reject('Verification failed, please Login again.')

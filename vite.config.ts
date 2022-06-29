@@ -18,10 +18,10 @@ export default defineConfig(({}) => {
       vueI18n({
         // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
         // compositionOnly: false,
-  
+
         // you need to set i18n resource including paths !
         include: path.resolve(__dirname, './src/locales/**'),
-        compositionOnly: true,
+        compositionOnly: true
       }),
       AutoImport({
         resolvers: [IconsResolver(), ElementPlusResolver()]
@@ -46,15 +46,15 @@ export default defineConfig(({}) => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
-        'path': "path-browserify"
+        path: 'path-browserify'
       }
     },
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use "@/styles/element/index.scss" as *;`,
-        },
-      },
-    },
+          additionalData: `@use "@/styles/element/index.scss" as *;`
+        }
+      }
+    }
   }
 })

@@ -35,7 +35,7 @@ export const useTagViewStore = defineStore('tagView', {
         resolve([...this.cachedViews])
       })
     },
-  
+
     delOthersVisitedViews(view) {
       this.visitedViews = this.visitedViews.filter((v) => {
         return v.meta.affix || v.path === view.path
@@ -99,6 +99,6 @@ export const useTagViewStore = defineStore('tagView', {
           cachedViews: [...this.cachedViews]
         })
       })
-    },
+    }
   }
 })
