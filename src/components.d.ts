@@ -24,6 +24,7 @@ declare module '@vue/runtime-core' {
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     Hamburger: typeof import('./components/layout/Hamburger.vue')['default']
+    HelloI18n: typeof import('./components/HelloI18n.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ScrollPane: typeof import('./components/layout/TagsView/ScrollPane.vue')['default']

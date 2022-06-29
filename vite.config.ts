@@ -7,6 +7,7 @@ import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { viteMockServe } from 'vite-plugin-mock'
+import { vueI18n } from '@intlify/vite-plugin-vue-i18n'
 
 // https://vitejs.dev/config/
 export default defineConfig(({}) => {
@@ -14,6 +15,14 @@ export default defineConfig(({}) => {
   return {
     plugins: [
       vue(),
+      vueI18n({
+        // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
+        // compositionOnly: false,
+  
+        // you need to set i18n resource including paths !
+        include: path.resolve(__dirname, './src/locales/**'),
+        compositionOnly: true,
+      }),
       AutoImport({
         resolvers: [IconsResolver(), ElementPlusResolver()]
       }),

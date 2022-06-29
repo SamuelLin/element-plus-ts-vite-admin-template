@@ -3,11 +3,13 @@ import { useRouter, useRoute } from 'vue-router'
 import { useAppStore } from '@/stores/app'
 import { useUserStore } from '@/stores/user'
 import { toggleDark } from '@/composables'
+import { useI18n } from 'vue-i18n'
 
 const router = useRouter()
 const route = useRoute()
 const appStore = useAppStore()
 const userStore = useUserStore()
+const { locale } = useI18n({ useScope: 'global' })
 
 function toggleSideBar() {
   appStore.toggleSideBar()
@@ -16,6 +18,11 @@ function toggleSideBar() {
 async function handleClick() {
   await userStore.logout()
   router.push(`/login?redirect=${route.fullPath}`)
+}
+
+function changeLocale(lang: string) {
+  locale.value = lang
+  appStore.setLocale(lang)
 }
 </script>
 
@@ -29,6 +36,17 @@ async function handleClick() {
     <Breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">
+      <el-dropdown class="right-menu-item hover-effect" trigger="click">
+        <div class="avatar-wrapper">
+          <p style="font-size: 14px; margin-top: 20px">{{ $t(appStore.locale) }}</p>
+        </div>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item @click="() => changeLocale('en')">{{ $t('en') }}</el-dropdown-item>
+            <el-dropdown-item @click="() => changeLocale('zh')">{{ $t('zh') }}</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
           <p style="font-size: 14px; margin-top: 20px">Lebron</p>

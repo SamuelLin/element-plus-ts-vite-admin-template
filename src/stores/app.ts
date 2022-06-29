@@ -6,7 +6,8 @@ export const useAppStore = defineStore('app', {
     sidebar: {
       opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : true,
       withoutAnimation: false
-    }
+    },
+    locale: localStorage.getItem('Tg-Locale') || 'en'
   }),
   actions: {
     toggleSideBar() {
@@ -22,6 +23,10 @@ export const useAppStore = defineStore('app', {
       Cookies.set('sidebarStatus', 0)
       this.sidebar.opened = false
       this.sidebar.withoutAnimation = withoutAnimation
+    },
+    setLocale(locale: string) {
+      this.locale = locale
+      localStorage.setItem('Tg-Locale', locale)
     }
   }
 })
