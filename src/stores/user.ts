@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { getInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
-import { usePermissionStore } from '@/stores/permission'
+import router, { resetRouter } from '@/router'
 
 export const useUserStore = defineStore('user', {
   state: () => ({
@@ -15,12 +15,10 @@ export const useUserStore = defineStore('user', {
 
     // user logout,
     logout() {
-      const permissionStore = usePermissionStore()
       this.token = ''
       this.roles = []
       removeToken()
-      permissionStore.resetRouter()
-
+      resetRouter()
       // TODO: 頁籤實作
       // reset visited views and cached views
       // to fixed https://github.com/PanJiaChen/vue-element-admin/issues/2485
@@ -29,35 +27,41 @@ export const useUserStore = defineStore('user', {
 
     getInfo() {
       return new Promise((resolve, reject) => {
-        getInfo()
-          .then((response) => {
-            const { data } = response
+        const mockData = { name: 'Test', roles: ['admin'] }
 
-            // if (!data) {
-            //   reject('Verification failed, please Login again.')
-            // }
+        this.roles = mockData.roles
+        this.name = mockData.name
+  
+        resolve(mockData)
+        
+        // getInfo()
+        //   .then((response) => {
+            
 
-            // const { roles, name, avatar, introduction } = data
+        //     if (!data) {
+        //       reject('Verification failed, please Login again.')
+        //     }
 
-            // // roles must be a non-empty array
-            // if (!roles || roles.length <= 0) {
-            //   reject('getInfo: roles must be a non-null array!')
-            // }
+        //     const { roles, name, avatar, introduction } = data
 
-            // commit('SET_ROLES', roles)
-            // commit('SET_NAME', name)
-            // commit('SET_AVATAR', avatar)
-            // commit('SET_INTRODUCTION', introduction)
-            resolve(data)
-          })
-          .catch((error) => {
-            reject(error)
-          })
+        //     // roles must be a non-empty array
+        //     if (!roles || roles.length <= 0) {
+        //       reject('getInfo: roles must be a non-null array!')
+        //     }
+
+        //     commit('SET_ROLES', roles)
+        //     commit('SET_NAME', name)
+        //     commit('SET_AVATAR', avatar)
+        //     commit('SET_INTRODUCTION', introduction)
+        //   })
+        //   .catch((error) => {
+        //     reject(error)
+        //   })
       })
     },
 
     // remove token
-    resetToken({ commit }) {
+    resetToken() {
       return new Promise((resolve) => {
         this.token = ''
         this.roles = []

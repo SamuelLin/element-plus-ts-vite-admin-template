@@ -23,5 +23,8 @@
     }
   ],
   "files.eol": "\n",
-  "vetur.validation.template": false
+  "vetur.validation.template": false,
+  "i18n-ally.localesPaths": [
+    "src/locales"
+  ]
 }

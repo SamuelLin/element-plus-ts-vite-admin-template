@@ -20,6 +20,7 @@ const sizeForm = reactive({
 })
 
 function handleClick() {
+  localStorage.setItem('Tg-Token', '123')
   router.push('/home')
 }
 </script>

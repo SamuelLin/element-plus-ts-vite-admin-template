@@ -1,12 +1,24 @@
-<script lang="ts" setup>
+<script setup>
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useAppStore } from '@/stores/app'
+import { usePermissionStore } from '@/stores/permission'
 
 const route = useRoute()
 const appStore = useAppStore()
+const permissionStore = usePermissionStore()
 
 const handleOpen = (key, keyPath) => {}
 const handleClose = (key, keyPath) => {}
+
+const activeMenu = computed(() => {
+  const { meta, path } = route
+  // if set path, the sidebar will highlight the path you set
+  if (meta.activeMenu) {
+    return meta.activeMenu
+  }
+  return path
+})
 </script>
 
 <template>
@@ -18,26 +30,17 @@ const handleClose = (key, keyPath) => {}
       text-color="#fff"
       style="border-right: none"
       router
-      :default-active="route.path"
+      :default-active="activeMenu"
       :collapse="appStore.sidebar.opened"
       @open="handleOpen"
       @close="handleClose"
     >
-      <el-menu-item index="/home">
-        <el-icon>
-          <House />
-        </el-icon>
-        <template #title>Home</template>
-      </el-menu-item>
-      <el-sub-menu index="permission">
-        <template #title>
-          <el-icon><location /></el-icon>
-          <span>Permission</span>
-        </template>
-        <el-menu-item index="/permission/page">Page Permission</el-menu-item>
-        <el-menu-item index="/permission/directive">Page Directive</el-menu-item>
-        <el-menu-item index="/permission/role">Page Role</el-menu-item>
-      </el-sub-menu>
+      <BaseSideItem
+        v-for="route in permissionStore.routes"
+        :key="route.path"
+        :item="route"
+        :base-path="route.path"
+      />
     </el-menu>
   </el-scrollbar>
 </template>
@@ -46,13 +49,5 @@ const handleClose = (key, keyPath) => {}
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;
-}
-
-.el-sub-menu .el-menu-item {
-  background-color: #4d555c;
-
-  &:hover {
-    background-color: rgb(67, 74, 80);
-  }
 }
 </style>

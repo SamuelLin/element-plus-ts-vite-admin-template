@@ -18,7 +18,12 @@ export default defineConfig(({}) => {
         resolvers: [IconsResolver(), ElementPlusResolver()]
       }),
       Components({
-        resolvers: [IconsResolver(), ElementPlusResolver()]
+        // allow auto load markdown components under `./src/components/`
+        extensions: ['vue', 'md'],
+        // allow auto import and register components used in markdown
+        include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+        resolvers: [IconsResolver(), ElementPlusResolver()],
+        dts: 'src/components.d.ts'
       }),
       Icons({
         autoInstall: true

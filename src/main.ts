@@ -7,8 +7,8 @@ import router from './router'
 
 import 'element-plus/dist/index.css'
 import '@/styles/index.scss'
-import 'element-plus/theme-chalk/dark/css-vars.css'
-// import './permission' // router guard
+import 'element-plus/theme-chalk/dark/css-vars.css' // dark theme change
+import './permission' // router guard
 
 const pinia = createPinia()
 const app = createApp(App)
