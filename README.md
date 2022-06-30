@@ -14,3 +14,33 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
 
 You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+
+refer to [https://github.com/PanJiaChen/vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
+
+## Features
+
+```text
+- Login / Logout
+
+- Permission Authentication
+  - Page permission
+  - Directive permission
+  - Permission configuration page
+
+- Multi-environment build
+  - Develop (dev)
+  - sit (stage)
+  - Production (prod)
+
+- Global Features
+  - I18n
+  - Multiple dynamic themes
+  - Dynamic sidebar (supports multi-level routing)
+  - Dynamic breadcrumb
+  - Tags-view (Tab page Support right-click operation)
+  - Mock data
+
+- Error Page
+  - 401
+  - 404
+```

@@ -13,6 +13,15 @@ import { vueI18n } from '@intlify/vite-plugin-vue-i18n'
 export default defineConfig(() => {
   const localEnabled = !!process.env.USE_MOCK || false
   return {
+    server: {
+      proxy: {
+        '/api': {
+          target: import.meta.env.BASE_URL,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, '')
+        }
+      }
+    },
     plugins: [
       vue(),
       vueI18n({
