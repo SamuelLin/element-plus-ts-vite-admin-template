@@ -5,6 +5,7 @@
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",
     "dev": "vite",
+    "dev:mock": "cross-env USE_MOCK=true vite",
     "lint": "eslint -c .eslintrc.js --fix --ext .js,.ts,.vue .",
     "prepare": "husky install",
     "prettier": "prettier --write .",

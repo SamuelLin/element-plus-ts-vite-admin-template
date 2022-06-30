@@ -16,7 +16,7 @@ export default defineConfig(() => {
     server: {
       proxy: {
         '/api': {
-          target: import.meta.env.BASE_URL,
+          target: 'http://jsonplaceholder.typicode.com',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, '')
         }
